@@ -8,7 +8,7 @@
 /web/libraries/
 
 # Ignore sensitive information
-/web/sites/*/settings.php
+#/web/sites/*/settings.php # THIS SHOULD NOT BE COMMENTED IN A LIVE ENV, BUT IS NEEDED FOR PRESENTATION ON attrib/drupal-docker
 /web/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
