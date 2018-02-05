@@ -30,16 +30,16 @@ services:
 # Set any variables we need
 variables:
   # Configure mysql environment variables (https://hub.docker.com/r/_/mariadb/)
-  MYSQL_RANDOM_ROOT_PASSWORD=yes
-  MYSQL_DATABASE=docker
-  MYSQL_USER=docker
-  MYSQL_PASSWORD=docker
+  MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+  MYSQL_DATABASE: "docker"
+  MYSQL_USER: "docker"
+  MYSQL_PASSWORD: "docker"
   # Drupal settings
-  SIMPLETEST_DB=mysql://docker:docker@mariadb/docker
-  SIMPLETEST_BASE_URL=http://localhost
-  BROWSERTEST_OUTPUT_DIRECTORY=/tmp/tests
-  SYMFONY_DEPRECATIONS_HELPER=weak
-  MINK_DRIVER_ARGS_WEBDRIVER='["chrome",{"chrome":{"switches":["disable-gpu","window-size=1280,1024"]}},"http://selenium:4444/wd/hub"]'
+  SIMPLETEST_DB: "mysql://docker:docker@mariadb/docker"
+  SIMPLETEST_BASE_URL: "http://localhost"
+  BROWSERTEST_OUTPUT_DIRECTORY: "/tmp/tests"
+  SYMFONY_DEPRECATIONS_HELPER: "weak"
+  MINK_DRIVER_ARGS_WEBDRIVER: '["chrome",{"chrome":{"switches":["disable-gpu","window-size=1280,1024"]}},"http://selenium:4444/wd/hub"]'
 
 
 # Run our tests
