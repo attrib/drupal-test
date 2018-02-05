@@ -29,6 +29,7 @@ services:
 
 # Set any variables we need
 variables:
+  GIT_SSL_NO_VERIFY: "true"
   # Configure mysql environment variables (https://hub.docker.com/r/_/mariadb/)
   MYSQL_RANDOM_ROOT_PASSWORD: "yes"
   MYSQL_DATABASE: "docker"
