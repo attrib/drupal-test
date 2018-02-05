@@ -41,7 +41,6 @@ variables:
   SYMFONY_DEPRECATIONS_HELPER: "weak"
   MINK_DRIVER_ARGS_WEBDRIVER: '["chrome",{"chrome":{"switches":["disable-gpu","window-size=1280,1024"]}},"http://selenium:4444/wd/hub"]'
 
-
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
