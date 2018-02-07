@@ -2,6 +2,9 @@
 # Select image from https://hub.docker.com/_/php/
 image: drupal-docker:latest
 
+before_script:
+  - php composer.phar install
+
 # Select what we should cache between builds
 cache:
   paths:
