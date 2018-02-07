@@ -1,26 +1,11 @@
 # This file is a template, and might need editing before it works on your project.
 # Select image from https://hub.docker.com/_/php/
-image: php:7.1-apache
+image: drupal-docker:latest
 
 # Select what we should cache between builds
 cache:
   paths:
   - vendor/
-
-before_script:
-- apt-get update -yqq
-- apt-get install -yqq git libmcrypt-dev libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev
-# Install PHP extensions
-- docker-php-ext-install mbstring mcrypt pdo_mysql curl json intl gd xml zip bz2 opcache tidy iconv
-# Install & enable Xdebug for code coverage reports
-- pecl install xdebug
-- docker-php-ext-enable xdebug
-# Install redis & igbinary
-- pecl install redis
-- pecl install igbinary
-# Install and run Composer
-- curl -sS https://getcomposer.org/installer | php
-- php composer.phar install
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ce/ci/services/README.html for examples.
@@ -29,7 +14,6 @@ services:
 
 # Set any variables we need
 variables:
-  GIT_SSL_NO_VERIFY: "true"
   # Configure mysql environment variables (https://hub.docker.com/r/_/mariadb/)
   MYSQL_RANDOM_ROOT_PASSWORD: "yes"
   MYSQL_DATABASE: "docker"
@@ -51,4 +35,4 @@ test:
 test_core:
   script:
   - /etc/init.d/apache2 start
-  - vendor/bin/phpunit --coverage-text --colors=never --exclude-group ignore -c web/core --group breadcrumb web/core
+  - vendor/bin/phpunit --colors=never --exclude-group ignore -c web/core --group breadcrumb web/core
