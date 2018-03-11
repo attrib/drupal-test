@@ -796,7 +796,7 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 
-$settings['container_yamls'][] = 'modules/redis/example.services.yml';
-$settings['redis.connection']['interface'] = 'PhpRedis'; // Can be "Predis".
-$settings['redis.connection']['host']      = 'redis';  // Your Redis instance hostname.
-$settings['cache']['default'] = 'cache.backend.redis';
+//$settings['container_yamls'][] = 'modules/redis/example.services.yml';
+//$settings['redis.connection']['interface'] = 'PhpRedis'; // Can be "Predis".
+//$settings['redis.connection']['host']      = 'redis';  // Your Redis instance hostname.
+//$settings['cache']['default'] = 'cache.backend.redis';

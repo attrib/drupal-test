@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8090:80"
+    depends_on:
+      - db
+      - solr
+      - redis
+      - selenium
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=docker
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker
+  solr:
+    image: solr
+  redis:
+    image: redis
+  selenium:
+    image: selenium/standalone-chrome:3.8.1-bohrium
+    volumes:
+      - /dev/shm:/dev/shm
