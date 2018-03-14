@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - "8090:80"
+    volumes:
+      - ./files/:/var/www/html/web/sites/default/files
     depends_on:
       - db
       - solr
